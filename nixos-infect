@@ -51,6 +51,8 @@ EOF
 {
   imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
   boot.loader.grub.device = "$grubdev";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   fileSystems."/" = { device = "$rootfsdev"; fsType = "ext4"; };
 }
 EOF
