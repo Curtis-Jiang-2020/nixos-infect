@@ -50,9 +50,16 @@ EOF
 { modulesPath, ... }:
 {
   imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
-  boot.loader.grub.device = "$grubdev";
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+#   boot.loader.grub.device = "$grubdev";
+#   boot.loader.systemd-boot.enable = true;
+#   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    grub = {
+      enable = true;
+      version = 2;
+      devices = ["nodev"]; # Where to put GRUB. "nodev" means EFI only.
+    };
+  };
   fileSystems."/" = { device = "$rootfsdev"; fsType = "ext4"; };
 }
 EOF
