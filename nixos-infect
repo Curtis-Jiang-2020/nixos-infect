@@ -35,6 +35,7 @@ makeConf() {
   users.users.root.openssh.authorizedKeys.keys = [$(while read -r line; do echo -n "
     \"$line\" "; done <<< "$keys")
     "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPy3QDKJjpzzyAbndLGyYtnWnSkGgWHRb5GWsO9Sb6CbOnKCErL9v5ASxQyQXZGgX/faPEXCwP9bCzMKHRw2Gvc="
+    "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC8H9adu1G4c/lrUcQvjpDOK0lEgWQO0uq8y/vZ4sKWi2B/mLA+VvN3K3iUz8Ox32a9HSFaHvkHa2vpa1sctmF0="
   ];
   services.openssh = {
     enable = true; 
